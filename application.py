@@ -17,21 +17,21 @@ schema = {
     "type" : "object",
     "properties" : {
     "day": {"type": "integer", "minimum": 0, "maximum": 5},
-    "count": {"type": "integer", "minimum": 0, "maximum": 0},
+    "count": {"const": 0},
     "timetable": {"type": "integer", "minimum": 0, "maximum": 30},
     "first_client": {
         "type": "object",
         "properties": {
         "name": {"type": "string"},
         "points": {"type": "integer", "minimum": 0, "maximum": 5},
-        "last_message": {"value": "None" }},
+        "last_message": {"const": "None" }},
         "required": ["name", "points", "last_message"]},
      "second_client": {
         "type": "object",
         "properties": {
         "name": {"type": "string"},
         "points": {"type": "integer", "minimum": 0, "maximum": 5},
-        "last_message": {"value": "None" }},
+        "last_message": {"const": "None" }},
         "required": ["name", "points", "last_message"]}
     },
     "required": ["day", "count","timetable","first_client","second_client"]
