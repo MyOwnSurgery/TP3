@@ -108,7 +108,7 @@ class Application(object):
     def send_game(self, fname):
         with open(fname, "r") as f:
             data = f.read()
-        json_data = json.loads(data[0:-1])
+        json_data = json.loads(data)
         flag = True
         print(json_data)
         try:
@@ -120,7 +120,7 @@ class Application(object):
 
         if flag is True:
             self.ui.error_label.pack_forget()
-            self.sock.sendall((data).encode())
+            self.sock.sendall((data+model.END_CHARACTER).encode())
         else:
             self.ui.error_label.pack()
 

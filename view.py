@@ -73,7 +73,7 @@ class EzChatUI(object):
         fname = tkinter.filedialog.askopenfilename(title="Открыть файл", initialdir="/",
                                       filetypes=ftypes)
         with open(fname, "w") as file:
-            file.write(self.application.game.marshal().decode(TARGET_ENCODING))
+            file.write(str(self.application.game.__dict__).replace("'", '"'))
 
     def input_dialogs(self):
         self.gui.lower()
