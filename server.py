@@ -98,12 +98,12 @@ class Server(object):
                     message = model.Message(**json.loads(data))
                 else:
                     old_name_1 = self.game.first_client.name
-                    old_name_2 = self.game.first_client.name
+                    old_name_2 = self.game.second_client.name
                     self.game = game_object.Game_obj(**json.loads(data))
                     self.game.first_client = client_model.Client(**self.game.first_client)
                     self.game.second_client = client_model.Client(**self.game.second_client)
                     self.game.first_client.name = old_name_1
-                    self.game.first_client.name = old_name_2
+                    self.game.second_client.name = old_name_2
                     self.message.message = "Game has been loaded It`s day "+str(self.game.day)
                     self.broadcast(self.message)
                     continue
